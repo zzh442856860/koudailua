@@ -42,10 +42,10 @@ end
 
 local function loadTexture() 
     local cache = cc.Director:getInstance():getTextureCache()
-    cache:addImageAsynv(M_LOGIN_BG, textureLoaded)
-    cache:addImageAsynv(M_LOGIN_BTN_UP, textureLoaded)
-    cache:addImageAsynv(M_LOGIN_BTN_DOWN, textureLoaded)
-    cache:addImageAsynv(M_CHUANGJIAN_UP, textureLoaded)
+--    cache:addImageAsynv(M_LOGIN_BG, textureLoaded)
+--    cache:addImageAsynv(M_LOGIN_BTN_UP, textureLoaded)
+--    cache:addImageAsynv(M_LOGIN_BTN_DOWN, textureLoaded)
+--    cache:addImageAsynv(M_CHUANGJIAN_UP, textureLoaded)
 end
 
 local function onExit() --@return typeOrObject
