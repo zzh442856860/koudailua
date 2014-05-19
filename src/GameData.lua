@@ -6,3 +6,4 @@ WsSock = nil
 WsAddr = "ws://192.168.1.107:8888/"
 
 OldTime = nil
+MsgRecv = {}

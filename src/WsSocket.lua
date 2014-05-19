@@ -1,4 +1,5 @@
 --zzh 20140519
+local cjson = require "json"
 
 local function onOpenWs(strData) --@return typeOrObject
    -- wsStatus:setString("Echo Ws was opened.")
@@ -10,6 +11,19 @@ local function onMessageWs(strData)
 --    recvTimes = recvTimes + 1
 --    local strInfo = "Recv: " .. strData .. ":" .. recvTimes
 --    wsStatus:setString(strInfo)
+    print(strData)
+    local data = nil
+    data = cjson.decode(strData)
+    if nil ~= data then
+        local cmd = data.Cmd
+        local param = data.Param
+        if cmd == CMD_ENTERBATTLE then
+            MsgRecv[cmd] = param
+        end
+        
+        print(cmd)
+    end
+
 end 
 
 local function onCloseWs(strData) --@return typeOrObject

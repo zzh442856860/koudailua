@@ -5,6 +5,22 @@ local layer = nil
 local s = cc.Director:getInstance():getVisibleSize()
 local w = s.width/2
 local h = s.height/2
+local scheduleMsg = nil
+local scheduler = cc.Director:getInstance():getScheduler()
+
+local function recvEnterBattle(dt) --@return typeOrObject
+    local msg = MsgRecv[CMD_ENTERBATTLE]
+    if nil ~= msg then
+       --unschedule(recvEnterBattle)
+       print(msg)
+       print("recv msg: ", cjson.decode(msg))
+       MsgRecv[CMD_ENTERBATTLE] = nil
+       msg = nil
+       scheduler:unscheduleScriptEntry(scheduleMsg)
+       scheduleMsg = nil
+       
+    end
+end
 
 local function sendEnterBattle() --@return typeOrObject
 	local tab = {}
@@ -15,12 +31,11 @@ local function sendEnterBattle() --@return typeOrObject
 	local buf = ConstructMsg(CMD_ENTERBATTLE,tab)
 	WsSock:sendString(buf)
 	print(jsonData)
-	
+	scheduleMsg = scheduler:scheduleScriptFunc(recvEnterBattle, 1.0, false)
+	--schedule(recvEnterBattle)
 end
 
-local function recvEnterBattle() --@return typeOrObject
-	
-end
+
 
 local function createLayer() --@return typeOrObject
 	layer = cc.Layer:create()

@@ -229,6 +229,7 @@ local function main()
 	require "BattleScene"
 	require "json"
 	require "Message"
+	--require "extern"
 	
 	InitWsSock()
 	
