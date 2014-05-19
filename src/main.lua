@@ -223,8 +223,16 @@ local function main()
 	
 	cc.Director:getInstance():getOpenGLView():setDesignResolutionSize(1920,1080,3)
 	
+	require "GameData"
 	require "LoadingScene"
-	local sceneGame = createLoadingScene()
+	require "WsSocket"
+	require "BattleScene"
+	require "json"
+	require "Message"
+	
+	InitWsSock()
+	
+	local sceneGame = CreateBattleScene()--createLoadingScene()
 	
 	if cc.Director:getInstance():getRunningScene() then
 		cc.Director:getInstance():replaceScene(sceneGame)

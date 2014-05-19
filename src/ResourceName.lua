@@ -1,4 +1,7 @@
 
+--ws server
+WS_ADDR = "ws://192.168.1.110:8888"
+
 --command id
 
 --loading layer
@@ -33,6 +36,8 @@ M_QHBTN_DOWN ="mainview/qh_btn_down.png"
 M_FLBTN_UP ="mainview/fl_btn_up.png"
 M_FLBTN_DOWN ="mainview/fl_btn_down.png"
 
+--battel scene
+M_BATTLE_BG = "background01.png"
 
 
 

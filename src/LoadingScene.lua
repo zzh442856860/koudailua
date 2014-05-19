@@ -52,6 +52,8 @@ local function onExit() --@return typeOrObject
 	cc.Director:getInstance():getTextureCache():removeTextureForKey(M_LOADING_BG)
 	cc.Director:getInstance():getTextureCache():removeTextureForKey(M_PROGRESS_BG)
 	cc.Director:getInstance():getTextureCache():removeTextureForKey(M_PROGRESS)
+	
+	--cc.Director:getInstance():replaceScene()
 end
 
 local function onNodeEvent(event) --@return typeOrObject
